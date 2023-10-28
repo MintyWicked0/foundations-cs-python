@@ -1,14 +1,49 @@
 def matracies():
-    print("Working 1")
+    rows = int(input("Enter number of rows: "))    #User will input the desired
+    cols = int(input("Enter number of columns: ")) #size of the matrix
+    mat1 = [] #
+    mat2 = [] #creating empty matrices
+    result = []  #
+
+    for i in range(rows):
+        mat1_row = [0] * cols
+        mat2_row = [0] * cols
+        result_row = [0] * cols
+
+        mat1.append(mat1_row)
+        mat2.append(mat2_row)
+        result.append(result_row)
+    
+    for i in range(rows):
+        for j in range(cols):
+            result[i][j] = mat1[i][j] + mat2[i][j]
+            
+    print("The resulting matrix is:")
+    for row in result:
+        print(row)
     
 def checkingR():
-    print("Working 2")
+    mat1 = []
+    mat2 = []
+
+    print("Enter elements of the first matrix:")
 
 def invertion():
-    print("Working 3")
+    ori = {}
+    inv = {}
+
+    n = int(input("Enter the number of key-value pairs: "))
     
 def conversation():
-    print("Working 4")
+    user_data = []
+
+    n = int(input("Enter the number of users: "))
+
+    for i in range(n):
+        user = []
+        user.append(input("Enter First Name: "))
+        user.append(input("Enter Last Name: "))
+        user.append(input
 
 def checkingP():
     print("Working 5")
