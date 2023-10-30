@@ -161,10 +161,41 @@ def checkingP(s):
         print("The string is a palindrome.")
     else:
         print("The string is not a palindrome.")
+#(6) is purely researched and not completly my work.
+def custom_sort(arr):
+    # Custom sort function (selection sort)
+    n = len(arr)
+    for i in range(n):
+        min_index = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
 
-def search():
-    print("Working 6")
-    
+def search_and_sort_list():
+    # Initialize an empty list
+    my_list = []
+
+    # Get elements for the list
+    n = int(input("Enter the number of elements in the list: "))
+    for i in range(n):
+        element = int(input(f"Enter element {i + 1}: "))
+        my_list.append(element)
+
+    # Get the element to search for
+    search_element = int(input("Enter the element to search for: "))
+
+    # Search for the element in the list
+    if search_element in my_list:
+        index = my_list.index(search_element)
+        print(f"The element {search_element} was found at index {index}.")
+
+        # Sort the list using the custom sort function
+        custom_sort(my_list)
+
+        print("Sorted list:", my_list)
+    else:
+        print(f"The element {search_element} was not found in the list.")
 
 def main():
     print("Welcome to the Program!")
@@ -203,7 +234,7 @@ def main():
             else:
                 print("The string is not a palindrome.")
         elif choice == '6':
-            search()
+            search_and_sort_list()
         elif choice == '7':
             print("End of the Program!")
             return
