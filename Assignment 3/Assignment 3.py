@@ -49,53 +49,69 @@ def checkingR():
 
     # Get elements for the first matrix separated values with spaces and press Enter after each row. Leave an empty line to finish
     print("Enter elements of the first matrix: ")
-
     while True:
         row_input = input()
         
-        if row_input:
-           row = []
-           elements = row_input.split()
-        
-           for element in elements:
-               row.append(int(element))
-        
-           matrix1.append(row)
-        else:
+        if not row_input:
             break
+        
+        row = [int(element) for element in row_input.split()]
+        matrix1.append(row)
 
     # Get elements for the second matrix separated values with spaces and press Enter after each row. Leave an empty line to finish
     print("Enter elements of the second matrix: ")
-
     while True:
         row_input = input()
-    
-        if row_input:
-            row = []
-            elements = row_input.split()
         
-            for element in elements:
-                row.append(int(element))
-        
-            matrix2.append(row)
-        else:
+        if not row_input:
             break
+        
+        row = [int(element) for element in row_input.split()]
+        matrix2.append(row)
 
     #Check if one matrix is a rotation of the other
-    transposed_matrix1 = [list(row) for row in zip(*matrix1)]
-    transposed_matrix2 = [list(row) for row in zip(*matrix2)]
+    is_rotation = True
 
-    if transposed_matrix1 == matrix2 or transposed_matrix2 == matrix1:
+    # Check if the columns of matrix1 are rows in matrix2
+    if len(matrix1[0]) != len(matrix2):
+        is_rotation = False
+
+    for i in range(len(matrix1)):
+        for j in range(len(matrix1[0])):
+            if matrix1[i][j] != matrix2[j][i]:
+                is_rotation = False
+                break
+
+    if is_rotation:
         print("The matrices are rotations of each other.")
     else:
         print("The matrices are not rotations of each other.")
 
-
 def invertion():
-    ori = {}
-    inv = {}
+    original_dict = {}
+    inverted_dict = {}
 
+    # Get the number of key-value pairs inputed by the user
     n = int(input("Enter the number of key-value pairs: "))
+
+    # Input key-value pairs example(you have 5 keys, you input 5 and then each key with the corresponding value)
+    for i in range(n):
+        key = input("Enter the key: ")
+        value = input("Enter the corresponding value: ")
+        original_dict[key] = value
+
+    # Invert the dictionary to
+    for key, value in original_dict.items():
+        try:
+            inverted_dict[value].append(key)
+        except KeyError: #we used except because our loop will not end without it and could not use else(researched about it)
+            inverted_dict[value] = [key]
+
+    # Display the original and inverted dictionaries
+    print("Before inverting:")
+    print(original_dict)
+    print("After inverting:")
+    print(inverted_dict)
 
 def conversation():
     user_data = []
