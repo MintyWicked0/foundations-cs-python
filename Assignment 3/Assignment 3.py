@@ -190,7 +190,7 @@ def main():
             invertion()
         elif choice == '4':
             convertion()
-        elif choice == '5':
+        elif choice == '5': #I had to research it since it was not very clear
             # Get the input string from the user
             input_string = input("Enter a string: ")
 
