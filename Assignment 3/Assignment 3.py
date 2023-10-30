@@ -43,7 +43,7 @@ def matracies():
     
 
 def checkingR():
-    # Initialize empty matrices
+    # Create matrices that user will fill
     matrix1 = []
     matrix2 = []
 
@@ -88,6 +88,7 @@ def checkingR():
         print("The matrices are not rotations of each other.")
 
 def invertion():
+    # Create dictionary that user will fill
     original_dict = {}
     inverted_dict = {}
 
@@ -113,24 +114,53 @@ def invertion():
     print("After inverting:")
     print(inverted_dict)
 
-def conversation():
-    user_data = []
+def convertion():
+    # Create list that user will fill
+    user_matrix = []
 
+    # Get the number of users from the user
     n = int(input("Enter the number of users: "))
 
+    # Input user data into the matrix
+    print("Enter user data (First Name, Last Name, ID, Job Title, Company) for each user:")
     for i in range(n):
-        user = []
-        user.append(input("Enter First Name: "))
-        user.append(input("Enter Last Name: "))
-        user.append(input("Enter ID: "))
-        user.append(input("Enter Job Title: "))
-        user.append(input("Enter Company: "))
-        user_data.append(user)
+        user_data = input("Enter user data: ").split()
+        user_matrix.append(user_data)
 
-    user_dict = ()
+    # Convert the matrix into a dictionary
+    user_dict = {}
+    for user in user_matrix:
+        user_id = user[2]
+        user_info = [user[0], user[1], user[3], user[4]]
+        user_dict[user_id] = user_info
 
-def checkingP():
-    print("Working 5")
+    # Display the user dictionary
+    print("User Data Dictionary:")
+    print(user_dict)
+
+def checkingP(s):
+    # Base case: If the string is empty or has only one character, it's a palindrome.
+    if len(s) <= 1:
+        return True
+    
+    # Check if the first and last characters of the string are the same.
+    if s[0] == s[-1]:
+        # Recursively check the remaining substring without the first and last characters.
+        return checkingP(s[1:-1])
+    
+    return False
+
+    # Get the input string from the user
+    input_string = input("Enter a string: ")
+
+    # Remove any leading and trailing spaces
+    input_string = input_string.strip()
+
+    # Check if the input string is a palindrome
+    if checkingP(input_string):
+        print("The string is a palindrome.")
+    else:
+        print("The string is not a palindrome.")
 
 def search():
     print("Working 6")
@@ -159,9 +189,19 @@ def main():
         elif choice == '3':
             invertion()
         elif choice == '4':
-            conversation()
+            convertion()
         elif choice == '5':
-            checkingP()
+            # Get the input string from the user
+            input_string = input("Enter a string: ")
+
+            # Remove any leading and trailing spaces
+            input_string = input_string.strip()
+
+            # Check if the input string is a palindrome
+            if checkingP(input_string):
+                print("The string is a palindrome.")
+            else:
+                print("The string is not a palindrome.")
         elif choice == '6':
             search()
         elif choice == '7':
