@@ -16,10 +16,15 @@ def close_tab(tabs):
             closed_tab = tabs.pop(index)
             print("Closed ", closed_tab['title'])
         else:
-            print("Invalid Tab selection. No tab closed. \nCheck the current opened tabs by selecting Display all tabs! ")
+            print("Invalid Tab selection. No tab closed. \nCheck the current opened tabs by selecting Display all tabs!")
     
-def switch_tab():
-    print(" ")
+def switch_tab(tabs):
+    if len(tabs) == 0:
+        print("No tabs to display. \nYou must first Open a tab by selecting Open Tab!")
+        
+    index = input("Enter the index of the tab to switch to: ")
+    if index == '':
+        index = -1
     
 def display_all_tabs():
     print(" ")
@@ -56,7 +61,7 @@ def main():
         elif choice == '2':
             close_tab(tabs)
         elif choice == '3':
-            switch_tab()
+            switch_tab(tabs)
         elif choice == '4':
             display_all_tabs()
         elif choice == '5': 
