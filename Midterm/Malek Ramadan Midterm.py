@@ -7,13 +7,16 @@ def open_tab(tabs):
 
 def close_tab(tabs):
     index = input("Enter the index of the tab you wish to close: ")
-    if index.isdigit():
+    if index == '':
+        closed_tab = tabs.pop()
+        print("Last opened tab was closed. Closed", closed_tab['title'])
+    elif index.isdigit():
         index = int(index) - 1
         if 0 <= index < len(tabs):
             closed_tab = tabs.pop(index)
             print("Closed ", closed_tab['title'])
         else:
-            print("Invalid Tab selection. No tab closed. Check ")
+            print("Invalid Tab selection. No tab closed. \nCheck the current opened tabs by selecting Display all tabs! ")
     
 def switch_tab():
     print(" ")
