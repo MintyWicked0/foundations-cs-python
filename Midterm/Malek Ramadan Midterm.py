@@ -1,10 +1,11 @@
 tabs= {}
 open_tabs = []
+
 def open_tab():
     title = input("Enter the title of the website: ")
     url = input("Enter the URL of the website: ")
-    tab = {"title": title, "url": url}
-    open_tabs.append(tab)
+    tabs = {"title": title, "url": url}
+    open_tabs.append(tabs)
     print(title, "opened successfully.")
 
 def close_tab():
@@ -20,7 +21,7 @@ def close_tab():
         else:
             print("Invalid Tab selection. No tab closed. \nCheck the current opened tabs by selecting Display all tabs!")
     else:
-        print("No tabs to display.")
+        print("No tabs to close.")
     
 def switch_tab():
     index = input("Enter the index of the tab you wish to switch to: ")
@@ -29,10 +30,10 @@ def switch_tab():
     else:
         current_tab = open_tabs[int(index)]
     print(current_tab["title"])
-    print(current_tab["url"])
+    print(current_tab["url"]) 
     
 def display_all_tabs():
-    print(" ")
+    open_tabs.clear()
 
 def nested_tab():
     print(" ")
