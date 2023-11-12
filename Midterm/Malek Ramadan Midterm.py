@@ -66,7 +66,10 @@ def save_tabs(): #https://stackoverflow.com/questions/7771011/how-can-i-parse-re
         #"PermissionError: [Errno 13] Permission denied: 'C:\\Users\\malek\\Desktop\\GitHub\\foundations-cs-python\\Midterm'"
     
 def import_tabs():
-    print(" ")
+    global open_tabs#https://www.w3schools.com/python/gloss_python_global_variables.asp
+    file_path = input("Enter file path to import tabs: ")
+    with open(file_path, "r") as file:
+        open_tabs = json.load(file)
     
 def main():
     while True:
