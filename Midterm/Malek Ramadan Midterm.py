@@ -12,11 +12,11 @@ def open_tab():
 
 def close_tab():
     index = input("Enter the index of the tab you wish to close: ")
-    if index == '':
+    if index == '':#If the input is empty, pop the last opened tab from the list of open tabs.
         closed_tab = open_tabs.pop()
         print("Last opened tab was closed. Closed", closed_tab["title"])
     elif index.isdigit():
-        index = int(index) - 1
+        index = int(index) - 1#Convert the input to an integer and subtract 1 to get the zero-based index.
         if 0 <= index < len(open_tabs):
             closed_tab = open_tabs.pop(index)
             print("Closed", closed_tab["title"])
@@ -49,11 +49,12 @@ def nested_tab():
     index = input("Enter index of parent tab where nested tab will be inserted: ")
     title = input("Enter title: ")
     url = input("Enter URL: ")
-    tab = {"title": title, "url": url, "tabs": []}
-    open_tabs[int(index)]["tabs"].append(tab)
+    tab = {"title": title, "url": url, "tabs": []}#Create a dictionary representing the nested tab.
+    open_tabs[int(index)]["tabs"].append(tab)#Access the parent tab in the list of open tabs at the specified index 
+                                             #and append the newly created nested tab.
     
 def clear_all_tabs():
-    open_tabs.clear()
+    open_tabs.clear()#Delete all elements in the list.
 
 def save_tabs(): #https://stackoverflow.com/questions/7771011/how-can-i-parse-read-and-use-json-in-python
     #https://www.geeksforgeeks.org/json-with-python/
@@ -68,15 +69,15 @@ def save_tabs(): #https://stackoverflow.com/questions/7771011/how-can-i-parse-re
 def import_tabs():
     global open_tabs#https://www.w3schools.com/python/gloss_python_global_variables.asp
     file_path = input("Enter file path to import tabs: ")
-    with open(file_path, "r") as file:
+    with open(file_path, "r") as file:#Open the specified file in read mode.
         open_tabs = json.load(file)
     
 def main():
     while True:
         print("1. Open Tab")
         print("2. Close Tab")
-        print("3. Switch Taab")
-        print("4. Displat all tabs")
+        print("3. Switch Tab")
+        print("4. Display all tabs")
         print("5. Open nested tabs")
         print("6. Clear All Tabs")
         print("7. Save Tabs")
