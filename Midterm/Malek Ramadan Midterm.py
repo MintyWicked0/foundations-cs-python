@@ -41,9 +41,9 @@ def display_all_tabs(): #resource: https://realpython.com/python-enumerate/
         print("URL:", t["url"])
         print("Nested Tabs:")
         for j, k in enumerate(t["tabs"]):
-            print("\tTab", j + 1)
-            print("\tTitle:", k["title"])
-            print("\tURL:", k["url"])
+            print("Tab", j + 1)
+            print("Title:", k["title"])
+            print("URL:", k["url"])
 
 def nested_tab():
     index = input("Enter index of parent tab where nested tab will be inserted: ")
