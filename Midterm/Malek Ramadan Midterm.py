@@ -33,13 +33,13 @@ def switch_tab():
     print(current_tab["url"]) 
     
 def display_all_tabs():
-    open_tabs.clear()
+    print(" ")
 
 def nested_tab():
     print(" ")
     
 def clear_all_tabs():
-    print(" ")
+    open_tabs.clear()
 
 def save_tabs():
     print(" ")
