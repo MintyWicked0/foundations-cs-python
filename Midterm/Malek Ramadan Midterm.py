@@ -1,3 +1,5 @@
+import json
+
 tabs= {}
 open_tabs = []
 
@@ -48,8 +50,14 @@ def nested_tab():
 def clear_all_tabs():
     open_tabs.clear()
 
-def save_tabs():
-    print(" ")
+def save_tabs(): #https://stackoverflow.com/questions/7771011/how-can-i-parse-read-and-use-json-in-python
+    #https://www.geeksforgeeks.org/json-with-python/
+    file_path = input("Enter file path to save tabs: ")
+    
+    # Open the specified file in write mode ("w")
+    # and use the 'with' statement to ensure proper handling of the file
+    with open(file_path, "w") as file:
+        json.dump(open_tabs, file)
     
 def import_tabs():
     print(" ")
