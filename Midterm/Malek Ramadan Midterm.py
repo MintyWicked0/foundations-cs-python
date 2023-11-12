@@ -12,12 +12,12 @@ def close_tab():
     index = input("Enter the index of the tab you wish to close: ")
     if index == '':
         closed_tab = open_tabs.pop()
-        print("Last opened tab was closed. Closed", closed_tab['title'])
+        print("Last opened tab was closed. Closed", closed_tab["title"])
     elif index.isdigit():
         index = int(index) - 1
         if 0 <= index < len(open_tabs):
             closed_tab = open_tabs.pop(index)
-            print("Closed", closed_tab['title'])
+            print("Closed", closed_tab["title"])
         else:
             print("Invalid Tab selection. No tab closed. \nCheck the current opened tabs by selecting Display all tabs!")
     else:
@@ -32,8 +32,11 @@ def switch_tab():
     print(current_tab["title"])
     print(current_tab["url"]) 
     
-def display_all_tabs():
-    print(" ")
+def display_all_tabs(): #resource: https://realpython.com/python-enumerate/
+    for i, t in enumerate(open_tabs):#used enumerate to be able to use 
+        print("Tab", i + 1)          #count and displaying the items
+        print("Title:", t["title"])
+        print("URL:", t["url"])
 
 def nested_tab():
     print(" ")
