@@ -1,30 +1,35 @@
-def open_tab(tabs):
+tabs= {}
+open_tabs = []
+def open_tab():
     title = input("Enter the title of the website: ")
     url = input("Enter the URL of the website: ")
     tab = {"title": title, "url": url}
-    tabs.append(tab)
+    open_tabs.append(tab)
     print(title, "opened successfully.")
 
-def close_tab(tabs):
+def close_tab():
     index = input("Enter the index of the tab you wish to close: ")
     if index == '':
-        closed_tab = tabs.pop()
+        closed_tab = open_tabs.pop()
         print("Last opened tab was closed. Closed", closed_tab['title'])
     elif index.isdigit():
         index = int(index) - 1
-        if 0 <= index < len(tabs):
-            closed_tab = tabs.pop(index)
-            print("Closed ", closed_tab['title'])
+        if 0 <= index < len(open_tabs):
+            closed_tab = open_tabs.pop(index)
+            print("Closed", closed_tab['title'])
         else:
             print("Invalid Tab selection. No tab closed. \nCheck the current opened tabs by selecting Display all tabs!")
+    else:
+        print("No tabs to display.")
     
-def switch_tab(tabs):
-    if len(tabs) == 0:
-        print("No tabs to display. \nYou must first Open a tab by selecting Open Tab!")
-        
-    index = input("Enter the index of the tab to switch to: ")
-    if index == '':
-        index = -1
+def switch_tab():
+    index = input("Enter the index of the tab you wish to switch to: ")
+    if index == "":
+        current_tab = open_tabs[-1]
+    else:
+        current_tab = open_tabs[int(index)]
+    print(current_tab["title"])
+    print(current_tab["url"])
     
 def display_all_tabs():
     print(" ")
@@ -42,8 +47,6 @@ def import_tabs():
     print(" ")
     
 def main():
-    tabs= []
-    
     while True:
         print("1. Open Tab")
         print("2. Close Tab")
@@ -57,11 +60,11 @@ def main():
         choice = input("Enter your choice: ")
         
         if choice == '1':
-            open_tab(tabs)
+            open_tab()
         elif choice == '2':
-            close_tab(tabs)
+            close_tab()
         elif choice == '3':
-            switch_tab(tabs)
+            switch_tab()
         elif choice == '4':
             display_all_tabs()
         elif choice == '5': 
