@@ -23,14 +23,14 @@ def close_tab():
         else:
             print("Invalid Tab selection. No tab closed. \nCheck the current opened tabs by selecting Display all tabs!")
     else:
-        print("No tabs to close.")
+        print("No tabs to close.")#If the input is neither empty nor a valid digit.
     
 def switch_tab():
     index = input("Enter the index of the tab you wish to switch to: ")
     if index == "":
-        current_tab = open_tabs[-1]
+        current_tab = open_tabs[-1]#If the input is empty set the current tab to the last tab in the list
     else:
-        current_tab = open_tabs[int(index)]
+        current_tab = open_tabs[int(index)]#Set the current tab to the tab at the index provided by the user
     print(current_tab["title"])
     print(current_tab["url"]) 
     
@@ -39,6 +39,11 @@ def display_all_tabs(): #resource: https://realpython.com/python-enumerate/
         print("Tab", i + 1)          #count and displaying the items
         print("Title:", t["title"])
         print("URL:", t["url"])
+        print("Nested Tabs:")
+        for j, k in enumerate(t["tabs"]):
+            print("\tTab", j + 1)
+            print("\tTitle:", k["title"])
+            print("\tURL:", k["url"])
 
 def nested_tab():
     index = input("Enter index of parent tab where nested tab will be inserted: ")
@@ -57,7 +62,8 @@ def save_tabs(): #https://stackoverflow.com/questions/7771011/how-can-i-parse-re
     # Open the specified file in write mode ("w")
     # and use the 'with' statement to ensure proper handling of the file
     with open(file_path, "w") as file:
-        json.dump(open_tabs, file)
+        json.dump(open_tabs, file)#giving me an error every time I run it
+        #"PermissionError: [Errno 13] Permission denied: 'C:\\Users\\malek\\Desktop\\GitHub\\foundations-cs-python\\Midterm'"
     
 def import_tabs():
     print(" ")
