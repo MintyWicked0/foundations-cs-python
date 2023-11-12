@@ -4,8 +4,8 @@ open_tabs = []
 def open_tab():
     title = input("Enter the title of the website: ")
     url = input("Enter the URL of the website: ")
-    tabs = {"title": title, "url": url}
-    open_tabs.append(tabs)
+    tab = {"title": title, "url": url}
+    open_tabs.append(tab)
     print(title, "opened successfully.")
 
 def close_tab():
@@ -39,7 +39,11 @@ def display_all_tabs(): #resource: https://realpython.com/python-enumerate/
         print("URL:", t["url"])
 
 def nested_tab():
-    print(" ")
+    index = input("Enter index of parent tab where nested tab will be inserted: ")
+    title = input("Enter title: ")
+    url = input("Enter URL: ")
+    tab = {"title": title, "url": url, "tabs": []}
+    open_tabs[int(index)]["tabs"].append(tab)
     
 def clear_all_tabs():
     open_tabs.clear()
