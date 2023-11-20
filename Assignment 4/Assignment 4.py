@@ -1,3 +1,21 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Student:
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+        
+class PriorityQueue:
+    def __init__(self):
+        self.head = None
+    def enqueue(self):
+        new_node = Node()
+        if self.isEmpty():
+            self.head = new_node
+        
 def main():
     print("Welcome to the Program!")
     name = input("Please enter your first name: ")
