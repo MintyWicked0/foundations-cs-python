@@ -1,12 +1,15 @@
 class Node:
-    def __init__(self, data):
+    def __init__(self,data):
         self.data = data
         self.next = None
 
 class Student:
-    def __init__(self, name, grade):
+    def __init__(self,name,grade,midterm_grade,final_grade,good_attitude):
         self.name = name
         self.grade = grade
+        self.midterm_grade = midterm_grade
+        self.final_grade = final_grade
+        self.good_attitude = good_attitude
         
 class PriorityQueue:
     def __init__(self):
