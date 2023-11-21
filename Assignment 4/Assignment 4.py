@@ -18,7 +18,14 @@ class PriorityQueue:
         new_node = Node()
         if self.isEmpty():
             self.head = new_node
-        
+    def dequeue(self):
+        if self.isEmpty():
+            print("Priority queue is empty")
+            return None
+        student = self.head.data
+        self.head = self.head.next
+        return student
+
 def main():
     print("Welcome to the Program!")
     name = input("Please enter your first name: ")
