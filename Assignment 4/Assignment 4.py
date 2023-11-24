@@ -9,8 +9,13 @@ class LinkedList:
 
     def add_node(self, value):
         new_node = Node(value)
-        if self.head:
+        if self.head is None:
             self.head = new_node
+        else:
+            current = self.head
+            while current.next is not None:
+                current = current.next
+            current.next = new_node
 
 class Student:
     def __init__(self,name,grade,midterm_grade,final_grade,good_attitude):
