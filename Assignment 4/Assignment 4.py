@@ -16,6 +16,13 @@ class LinkedList:
             while current.next is not None:
                 current = current.next
             current.next = new_node
+    
+    def display_nodes(self):
+        current = self.head
+        while current:
+            print(current.value, end=" -> ")
+            current = current.next
+        print("None")
 
 class Student:
     def __init__(self,name,grade,midterm_grade,final_grade,good_attitude):
