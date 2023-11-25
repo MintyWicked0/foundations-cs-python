@@ -67,7 +67,9 @@ def priority_queue_menu(priority_queue):
         print("a. Add a student")
         print("b. Interview a student")
         print("c. Return to main menu")
+        
         consecutive_errors = 0
+        
         choice = input("Enter your choice: ")
 
         if choice == "a":
@@ -94,8 +96,10 @@ def linked_list_menu(linked_list):
         print("b. Display Nodes")
         print("c. Search for & Delete Node")
         print("d. Return to main menu")
+        
         consecutive_errors = 0  
         choice = input("Enter your choice: ")
+        
         if choice == "a":
             value = int(input("Enter a numerical value: "))
             linked_list.add_node(value)
@@ -116,6 +120,8 @@ def main():
     print("Welcome to the Program!")
     name = input("Please enter your first name: ")
     print("Hello, ", name,"!")
+    
+    linked_list = LinkedList()
     consecutive_errors = 0
     
     while True:
@@ -128,9 +134,9 @@ def main():
         choice = input("Enter your choice: ")
         
         if choice == '1':
-            print(" ")
+            linked_list_menu(linked_list)
         elif choice == '2':
-            print(" ")
+            print("")
         elif choice == '3':
             print(" ")
         elif choice == '4':
