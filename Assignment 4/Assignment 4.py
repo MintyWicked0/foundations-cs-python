@@ -87,6 +87,28 @@ def priority_queue_menu(priority_queue):
             if consecutive_errors >= 4:
                 print("Too many consecutive errors. Exiting program.")
                 break
+def linked_list_menu(linked_list):
+    while True:
+        print("Singly Linked List Menu:")
+        print("a. Add Node")
+        print("b. Display Nodes")
+        print("c. Search for & Delete Node")
+        print("d. Return to main menu")
+        consecutive_errors = 0  
+        choice = input("Enter your choice: ")
+        if choice == "a":
+            print("")
+        elif choice == "b":
+            print("")
+        elif choice == "c":
+            print("")
+        elif choice == "d":
+            break
+        else:
+            print("Invalid choice. Please try again.")
+            consecutive_errors += 1
+            if consecutive_errors >= 4:
+                print("Too many consecutive errors. Exiting program.")
 
 def main():
     print("Welcome to the Program!")
