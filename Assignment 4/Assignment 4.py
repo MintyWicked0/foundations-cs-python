@@ -60,6 +60,33 @@ class PriorityQueue:
         student = self.head.data
         self.head = self.head.next
         return student
+    
+def priority_queue_menu(priority_queue):
+    while True:
+        print("Priority Queue Menu:")
+        print("a. Add a student")
+        print("b. Interview a student")
+        print("c. Return to main menu")
+        consecutive_errors = 0
+        choice = input("Enter your choice: ")
+
+        if choice == "a":
+            name = input("Enter student name: ")
+            midterm_grade = int(input("Enter midterm grade (0-100): "))
+            final_grade = int(input("Enter final grade (0-100): "))
+            good_attitude = input("Does the student have a good attitude? (True/False): ").lower() == "true"
+            student = Student(name, midterm_grade, final_grade, good_attitude)
+            priority_queue.add_student(student)
+        elif choice == "b":
+            priority_queue.interview_student()
+        elif choice == "c":
+            break
+        else:
+            print("Invalid choice. Please try again.")
+            consecutive_errors += 1
+            if consecutive_errors >= 4:
+                print("Too many consecutive errors. Exiting program.")
+                break
 
 def main():
     print("Welcome to the Program!")
