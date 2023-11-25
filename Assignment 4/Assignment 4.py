@@ -51,6 +51,7 @@ def main():
     print("Welcome to the Program!")
     name = input("Please enter your first name: ")
     print("Hello, ", name,"!")
+    consecutive_errors = 0
     
     while True:
         print("1. Singly Linked List")
@@ -74,8 +75,12 @@ def main():
         elif choice == '6':
             print("End of the Program!")
             print("Have great day!")
-            return
+            break
         else:
             print("Your input is invalid. Please enter a valid input from 1 to 6!")
+            consecutive_errors += 1
+            if consecutive_errors >= 4:
+                print("Too many consecutive errors. Exiting program.")
+                break
 
 main()
