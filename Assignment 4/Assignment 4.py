@@ -97,11 +97,13 @@ def linked_list_menu(linked_list):
         consecutive_errors = 0  
         choice = input("Enter your choice: ")
         if choice == "a":
-            print("")
+            value = int(input("Enter a numerical value: "))
+            linked_list.add_node(value)
         elif choice == "b":
-            print("")
+            linked_list.display_nodes()
         elif choice == "c":
-            print("")
+            value = int(input("Enter a value to search and delete: "))
+            linked_list.search_and_delete_node(value)
         elif choice == "d":
             break
         else:
