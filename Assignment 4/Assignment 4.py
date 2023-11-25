@@ -23,6 +23,20 @@ class LinkedList:
             print(current.value, end=" -> ")
             current = current.next
         print("None")
+    
+    def search_and_delete_node(self, value):
+        current = self.head
+        prev = None
+        while current:
+            if current.value == value:
+                if prev:
+                    prev.next = current.next
+                else:
+                    self.head = current.next
+                current = None
+            else:
+                prev = current
+                current = current.next
 
 class Student:
     def __init__(self,name,grade,midterm_grade,final_grade,good_attitude):
