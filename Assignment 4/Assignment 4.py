@@ -74,6 +74,12 @@ class PriorityQueue:
         self.head = self.head.next
         return student
     
+    def isEmpty(self):
+        return self.head is None
+
+    def add_student(self, student):
+        self.enqueue(student)
+    
 def palindrome_check():
     string = input("Enter a string: ")
     if string == string[::-1]:
