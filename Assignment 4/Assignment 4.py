@@ -149,6 +149,38 @@ def linked_list_menu(linked_list):
             consecutive_errors += 1
             if consecutive_errors >= 4:
                 print("Too many consecutive errors. Exiting program.")
+                
+def graph_menu(graph):
+    while True:
+        print("Graph Menu:")
+        print("a. Add vertex")
+        print("b. Add edge")
+        print("c. Remove vertex")
+        print("d. Remove edge")
+        print("e. Display vertices with a degree of X or more")
+        print("f. Return to main menu")
+
+        choice = input("Enter your choice: ")
+        consecutive_errors = 0
+
+        if choice == 'a':
+            print(" ")
+        elif choice == 'b':
+            print(" ")
+        elif choice == 'c':
+            print(" ")
+        elif choice == 'd':
+            print(" ")
+        elif choice == 'e':
+            print(" ")
+        elif choice == 'f':
+            break
+        else:
+            print("Invalid choice. Please try again.")
+            consecutive_errors += 1
+            if consecutive_errors >= 4:
+                print("Too many consecutive errors. Exiting program.")
+                break
 
 def main():
     print("Welcome to the Program!")
