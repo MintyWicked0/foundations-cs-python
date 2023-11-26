@@ -130,6 +130,7 @@ def main():
     print("Hello, ", name,"!")
     
     linked_list = LinkedList()
+    priority_queue = PriorityQueue()
     consecutive_errors = 0
     
     while True:
@@ -146,7 +147,7 @@ def main():
         elif choice == '2':
             palindrome_check()
         elif choice == '3':
-            print(" ")
+            priority_queue_menu(priority_queue)
         elif choice == '4':
             print(" ")
         elif choice == '5':
