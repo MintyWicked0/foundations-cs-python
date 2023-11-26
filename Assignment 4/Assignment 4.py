@@ -61,6 +61,14 @@ class PriorityQueue:
         self.head = self.head.next
         return student
     
+def palindrome_check():
+    string = input("Enter a string: ")
+    if string == string[::-1]:
+        print("The string is a palindrome.")
+    else:
+        print("The string is not a palindrome.")
+
+    
 def priority_queue_menu(priority_queue):
     while True:
         print("Priority Queue Menu:")
@@ -136,7 +144,7 @@ def main():
         if choice == '1':
             linked_list_menu(linked_list)
         elif choice == '2':
-            print("")
+            palindrome_check()
         elif choice == '3':
             print(" ")
         elif choice == '4':
