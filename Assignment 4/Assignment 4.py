@@ -79,6 +79,13 @@ class PriorityQueue:
 
     def add_student(self, student):
         self.enqueue(student)
+        
+    def interview_student(self):
+        if self.isEmpty():
+            print("Priority queue is empty. No students to interview.")
+        else:
+            student = self.dequeue()
+            print("Interviewing", (student.name), "Midterm: ", student.midterm_grade, "Final: ", student.final_grade, "Attitude: ", student.good_attitude)
     
 def palindrome_check():
     string = input("Enter a string: ")
