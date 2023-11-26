@@ -49,10 +49,23 @@ class Student:
 class PriorityQueue:
     def __init__(self):
         self.head = None
-    def enqueue(self):
-        new_node = Node()
+        
+    def enqueue(self, student):
+        new_node = Node(student)
         if self.isEmpty():
             self.head = new_node
+        else:
+            current = self.head
+            prev = None
+            while current and current.data.grade >= student.grade:
+                prev = current
+                current = current.next
+            if prev:
+                prev.next = new_node
+            else:
+                self.head = new_node
+            new_node.next = current
+            
     def dequeue(self):
         if self.isEmpty():
             print("Priority queue is empty")
