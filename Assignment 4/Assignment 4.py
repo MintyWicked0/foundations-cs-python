@@ -1,8 +1,8 @@
 class Node:
-    def __init__(self,data):
+    def __init__(self, data):
         self.data = data
         self.next = None
-        
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -16,19 +16,19 @@ class LinkedList:
             while current.next is not None:
                 current = current.next
             current.next = new_node
-    
+
     def display_nodes(self):
         current = self.head
         while current:
-            print(current.value, end=" -> ")
+            print(current.data, end=" -> ")
             current = current.next
         print("None")
-    
+
     def search_and_delete_node(self, value):
         current = self.head
         prev = None
         while current:
-            if current.value == value:
+            if current.data == value:
                 if prev:
                     prev.next = current.next
                 else:
@@ -39,13 +39,13 @@ class LinkedList:
                 current = current.next
 
 class Student:
-    def __init__(self,name,grade,midterm_grade,final_grade,good_attitude):
+    def __init__(self, name, grade, midterm_grade, final_grade, good_attitude):
         self.name = name
         self.grade = grade
         self.midterm_grade = midterm_grade
         self.final_grade = final_grade
         self.good_attitude = good_attitude
-        
+    
 class PriorityQueue:
     def __init__(self):
         self.head = None
@@ -85,7 +85,7 @@ class PriorityQueue:
             print("Priority queue is empty. No students to interview.")
         else:
             student = self.dequeue()
-            print("Interviewing", student.name, "Midterm: ", student.midterm_grade, "Final: ", student.final_grade, "Attitude: ", student.good_attitude)
+            print(student.name,"Midterm:",student.midterm_grade,"Final:",student.final_grade,"Attitude:",student.good_attitude)
 
 class Stack:
     def __init__(self):
@@ -169,10 +169,11 @@ def priority_queue_menu(priority_queue):
 
         if choice == "a":
             name = input("Enter student name: ")
+            grade = int(input("Enter overall grade (0-100): "))
             midterm_grade = int(input("Enter midterm grade (0-100): "))
             final_grade = int(input("Enter final grade (0-100): "))
             good_attitude = input("Does the student have a good attitude? (True/False): ").lower() == "true"
-            student = Student(name, midterm_grade, final_grade, good_attitude)
+            student = Student(name, grade, midterm_grade, final_grade, good_attitude)
             priority_queue.add_student(student)
         elif choice == "b":
             priority_queue.interview_student()
@@ -184,6 +185,7 @@ def priority_queue_menu(priority_queue):
             if consecutive_errors >= 4:
                 print("Too many consecutive errors. Exiting program.")
                 break
+
 def linked_list_menu(linked_list):
     while True:
         print("Singly Linked List Menu:")
@@ -210,6 +212,7 @@ def linked_list_menu(linked_list):
             consecutive_errors += 1
             if consecutive_errors >= 4:
                 print("Too many consecutive errors. Exiting program.")
+                break
                 
 def graph_menu(graph):
     while True:
