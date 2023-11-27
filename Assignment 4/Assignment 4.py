@@ -100,7 +100,22 @@ class Stack:
     def pop(self):
         return self.items.pop()
     
-
+def evaluate_expression(expression):
+    num_stack = Stack()
+    op_stack = Stack()
+    
+    for char in expression:
+        if char.isdigit():
+            num_stack.push(int(char))
+        elif char == '(':
+            op_stack.push(char)
+        elif char == ')':
+            op_stack.pop()
+        else:
+            op_stack.push(char)
+        return num_stack.pop()
+            
+            
 class Vertex:
     def __init__(self, data):
         self.data = data
@@ -238,7 +253,9 @@ def main():
         elif choice == '3':
             priority_queue_menu(priority_queue)
         elif choice == '4':
-            print(" ")
+            expression = input("Enter an infix expression: ")
+            result = evaluate_expression(expression)
+            print("Result:", result)
         elif choice == '5':
             print(" ")
         elif choice == '6':
