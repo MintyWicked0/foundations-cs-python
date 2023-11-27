@@ -235,11 +235,18 @@ def graph_menu(graph):
             vertex2 = Vertex(data2)
             graph.add_edge(vertex1, vertex2)
         elif choice == 'c':
-            print(" ")
+            data = input("Enter vertex data to remove: ")
+            vertex = Vertex(data)
+            graph.remove_vertex(vertex)
         elif choice == 'd':
-            print(" ")
+            data1 = input("Enter the first vertex data: ")
+            data2 = input("Enter the second vertex data: ")
+            vertex1 = Vertex(data1)
+            vertex2 = Vertex(data2)
+            graph.remove_edge(vertex1, vertex2)
         elif choice == 'e':
-            print(" ")
+            degree = int(input("Enter the degree value: "))
+            graph.display_vertices_with_degree(degree)
         elif choice == 'f':
             break
         else:
@@ -256,6 +263,7 @@ def main():
     
     linked_list = LinkedList()
     priority_queue = PriorityQueue()
+    graph = Graph()
     consecutive_errors = 0
     
     while True:
@@ -278,7 +286,7 @@ def main():
             result = evaluate_expression(expression)
             print("Result:", result)
         elif choice == '5':
-            print(" ")
+            graph_menu(graph)
         elif choice == '6':
             print("End of the Program!")
             print("Have great day!")
