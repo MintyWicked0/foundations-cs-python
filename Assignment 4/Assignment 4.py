@@ -85,7 +85,7 @@ class PriorityQueue:
             print("Priority queue is empty. No students to interview.")
         else:
             student = self.dequeue()
-            print("Interviewing", (student.name), "Midterm: ", student.midterm_grade, "Final: ", student.final_grade, "Attitude: ", student.good_attitude)
+            print("Interviewing", student.name, "Midterm: ", student.midterm_grade, "Final: ", student.final_grade, "Attitude: ", student.good_attitude)
 
 class Stack:
     def __init__(self):
@@ -144,6 +144,10 @@ class Graph:
         if vertex1.data in self.vertices and vertex2.data in self.vertices:
             self.vertices[vertex1.data].neighbors.discard(vertex2.data)
             self.vertices[vertex2.data].neighbors.discard(vertex1.data)
+            
+    def display_vertices_with_degree(self, degree):
+        result = [vertex.data for vertex in self.vertices.values() if len(vertex.neighbors) >= degree]
+        print("Vertices with a degree of", degree,"or more: ",result)
     
 def palindrome_check():
     string = input("Enter a string: ")
@@ -221,9 +225,15 @@ def graph_menu(graph):
         consecutive_errors = 0
 
         if choice == 'a':
-            print(" ")
+            data = input("Enter vertex data: ")
+            vertex = Vertex(data)
+            graph.add_vertex(vertex)
         elif choice == 'b':
-            print(" ")
+            data1 = input("Enter the first vertex data: ")
+            data2 = input("Enter the second vertex data: ")
+            vertex1 = Vertex(data1)
+            vertex2 = Vertex(data2)
+            graph.add_edge(vertex1, vertex2)
         elif choice == 'c':
             print(" ")
         elif choice == 'd':
