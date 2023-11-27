@@ -87,13 +87,37 @@ class PriorityQueue:
             student = self.dequeue()
             print("Interviewing", (student.name), "Midterm: ", student.midterm_grade, "Final: ", student.final_grade, "Attitude: ", student.good_attitude)
 
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def push(self, data):
+        self.items.append(data)
+
+    def pop(self):
+        return self.items.pop()
+    
+
 class Vertex:
     def __init__(self, data):
         self.data = data
         self.neighbors = set()
+
 class Graph:
     def __init__(self):
         self.vertices = {}
+
+    def add_vertex(self, data):
+        if data not in self.vertices:
+            self.vertices[data] = Vertex(data)
+    
+    def add_edge(self, data1, data2):
+        if data1 in self.vertices and data2 in self.vertices:
+            self.vertices[data1].neighbors.add(data2)
+            self.vertices[data2].neighbors.add(data1)
     
 def palindrome_check():
     string = input("Enter a string: ")
@@ -202,7 +226,7 @@ def main():
         print("1. Singly Linked List")
         print("2. Check if Palindrome")
         print("3. Priority Queue")
-        print("4. CEvaluate an Infix Expression")
+        print("4. Evaluate an Infix Expression")
         print("5. Graph")
         print("6. Exit")
         choice = input("Enter your choice: ")
