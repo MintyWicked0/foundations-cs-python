@@ -86,6 +86,14 @@ class PriorityQueue:
         else:
             student = self.dequeue()
             print("Interviewing", (student.name), "Midterm: ", student.midterm_grade, "Final: ", student.final_grade, "Attitude: ", student.good_attitude)
+
+class Vertex:
+    def __init__(self, data):
+        self.data = data
+        self.neighbors = set()
+class Graph:
+    def __init__(self):
+        self.vertices = {}
     
 def palindrome_check():
     string = input("Enter a string: ")
@@ -94,7 +102,6 @@ def palindrome_check():
     else:
         print("The string is not a palindrome.")
 
-    
 def priority_queue_menu(priority_queue):
     while True:
         print("Priority Queue Menu:")
