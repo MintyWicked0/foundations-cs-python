@@ -322,5 +322,4 @@ def main():
             if consecutive_errors >= 4:
                 print("Too many consecutive errors. Exiting program.")
                 break
-
 main()
