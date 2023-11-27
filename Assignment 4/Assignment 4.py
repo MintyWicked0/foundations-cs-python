@@ -101,19 +101,41 @@ class Stack:
         return self.items.pop()
     
 def evaluate_expression(expression):
+    priority = {'+': 1, '-': 1, '*': 2, '/': 2}
     num_stack = Stack()
     op_stack = Stack()
-    
+
     for char in expression:
         if char.isdigit():
             num_stack.push(int(char))
         elif char == '(':
             op_stack.push(char)
         elif char == ')':
+            while op_stack.items[-1] != '(':
+                process(num_stack, op_stack)
             op_stack.pop()
         else:
+            while len(op_stack.items) > 0 and op_stack.items[-1] != '(' and priority[char] <= priority[op_stack.items[-1]]:
+                process(num_stack, op_stack)
             op_stack.push(char)
-        return num_stack.pop()
+
+    while len(op_stack.items) > 0:
+        process(num_stack, op_stack)
+    return num_stack.pop()
+
+def process(num_stack, op_stack):
+    num2 = num_stack.pop()
+    num1 = num_stack.pop()
+    op = op_stack.pop()
+
+    if op == '+':
+        num_stack.push(num1 + num2)
+    elif op == '-':
+        num_stack.push(num1 - num2)
+    elif op == '*':
+        num_stack.push(num1 * num2)
+    elif op == '/':
+        num_stack.push(num1 / num2)
             
             
 class Vertex:
