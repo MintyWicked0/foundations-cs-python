@@ -134,6 +134,17 @@ class Graph:
             self.vertices[data1].neighbors.add(data2)
             self.vertices[data2].neighbors.add(data1)
     
+    def remove_vertex(self, vertex):
+        if vertex.data in self.vertices:
+            del self.vertices[vertex.data]
+            for v in self.vertices.values():
+                v.neighbors.discard(vertex.data)
+
+    def remove_edge(self, vertex1, vertex2):
+        if vertex1.data in self.vertices and vertex2.data in self.vertices:
+            self.vertices[vertex1.data].neighbors.discard(vertex2.data)
+            self.vertices[vertex2.data].neighbors.discard(vertex1.data)
+    
 def palindrome_check():
     string = input("Enter a string: ")
     if string == string[::-1]:
